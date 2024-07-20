@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Vehicle Type</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <h1>Choose Vehicle Type</h1>
+        <form id="mainForm">
+            <label for="vehicle-type">Choose Vehicle Type</label>
+            <select id="vehicle-type" name="vehicle" id="vehicle" onchange="showAdditionalFields()">
+                <option value="">Select Vehicle</option>
+                <option name="vehicle" id="vehicle" value="motor-cycle">Motor Cycle</option>
+                <option name="vehicle" id="vehicle" value="scooter">Scooter</option>
+                <option name="vehicle" id="vehicle" value="electric-vehicle">Electric-vehicle</option>
+            </select>
+
+            <div id="additionalFields" style="display: none;">
+                <label for="work-city" >Select Work City</label>
+                <select id="work-city"  name="city" id="city" onchange="updateWorkAreas()">
+                    <option value="" >Select City</option>
+                    <option name="city" id="city" value="hyderabad">Hyderabad</option>
+                    <option name="city" id="city" value="bangalore">Bangalore</option>
+                    <option name="city" id="city" value="chennai">Chennai</option>
+                    <option name="city" id="city" value="vizag">Vizag</option>
+                </select>
+
+                <label for="workarea">Select Work Area</label>
+                <select id="workarea" name="area" id="area">
+                    <option name="area" id="workarea" value="">Select Area</option>
+                </select>
+            </div>
+
+          
+            <button type="button" onclick="vehicle1()">Next</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
+    <script>
+        var data = {};
+        function vehicle1() {
+            data['vehicle'] = $("#vehicle").val();      
+            data['city'] = $("#city").val();
+            data['area'] = $("#workarea").val();
+            $.ajax({
+                url: 'vehicle_info.php',
+                type: 'post',
+                data: data,
+                success: function(response) {
+                    if (response == 1) {
+                 alert('Details Submitted');
+                 window.location.href = "adhaarverify.html";
+                    } 
+                    else if(response == '0') {
+                        alert('Enter The Fields !');
+                    }
+                }
+            })
+        }
+
+    </script>
+
+    <script>
+        function showAdditionalFields() {
+            var vehicleType = document.getElementById("vehicle-type").value;
+            var additionalFields = document.getElementById("additionalFields");
+
+            if (vehicleType) {
+                additionalFields.style.display = "block";
+            } else {
+                additionalFields.style.display = "none";
+            }
+        }
+
+        function updateWorkAreas() {
+            var city = document.getElementById("work-city").value;
+            var workArea = document.getElementById("workarea");
+
+            var areas = {
+                hyderabad: ["Banjara Hills", "Jubilee Hills", "Madhapur", "Gachibowli", "Kondapur", "Hitech City", "Begumpet", "Secunderabad"],
+                bangalore: ["Whitefield", "Koramangala", "Indiranagar", "Marathahalli", "Jayanagar", "HSR Layout", "MG Road", "Electronic City"],
+                chennai: ["T. Nagar", "Anna Nagar", "Adyar", "Velachery", "Besant Nagar", "Nungambakkam", "Mylapore", "Kodambakkam"],
+                vizag: ["MVP Colony", "Dwaraka Nagar", "Gajuwaka", "Beach Road", "Seethammadara", "Lawson's Bay Colony", "Arilova", "Akkayyapalem"]
+            };
+
+            workArea.innerHTML = "<option value=''>Select Area</option>";
+
+            if (areas[city]) {
+                areas[city].forEach(function(area) {
+                    var option = document.createElement("option");
+                    option.value = area.toLowerCase().replace(/\s+/g, '-');
+                    option.text = area;
+                    workArea.add(option);
+                });
+            }
+
+            function showIdFields() {
+            var idType = document.getElementById("id-type").value;
+            var idFields = document.getElementById("idFields");
+
+            if (idType) {
+                idFields.style.display = "block";
+            } else {
+                idFields.style.display = "none";
+            }
+        }
+        }
+    </script>
+
+</body>
+</html>

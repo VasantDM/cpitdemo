@@ -1,0 +1,42 @@
+body,html {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+.mybg {
+    background-color: rgba(238, 240, 244, 0.7);
+    border: 1px solid rgb(182, 179, 179);
+    border-radius: 10px;
+    box-shadow: #16191e;
+    margin-left: 12px;
+}
+
+.mybg2 {
+    background-color: rgba(238, 240, 244, 0.7);
+    border: 1px solid rgb(182, 179, 179);
+    border-radius: 10px;
+    margin-left: 8px;
+}
+
+.mybg3 {
+    background-color: rgba(238, 240, 244, 0.7)  ;
+    border: 1px solid rgb(182, 179, 179);
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.btn-color {
+    background-color: #16191e;
+    color: white;
+    width: 150px;
+}
+
+.btn-color:hover {
+    background-color: white;
+    color: #1c2c50;
+}

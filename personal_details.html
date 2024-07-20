@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('backg.jpg') no-repeat center center fixed;
+            color: #fff;
+            background-size: cover;
+        }
+        .container {
+            margin-top: -45%;
+            text-align: center;
+            width: 100%;
+            
+        }
+        .illustration {
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+      
+        .btn-custom {
+            background-color: #fff;
+            color: #000;
+            border-radius: 25px;
+            padding: 15px 30px;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #ddd;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            border: #111112;
+            background-color: #c105c8;
+        }
+        .input-group-text {
+            background-color: #c581d8;
+            border: none;
+            color: #010101;
+        }
+        .btn-custom {
+            background-color: #5a3aa6;
+            color: #fff;
+            border-radius: 25px;
+            padding: 15px 30px;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #111112;
+        }
+        .terms {
+            font-size: 0.8em;
+            margin-top: 10px;
+            color: #000000;
+        }
+        .login-link {
+            margin-top: 10px;
+            display: block;
+        }
+        h2{
+          margin-bottom: 3.5rem;
+            color: #000;
+            font-weight: 800;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Personal Details</h2>
+        <!-- <img src="logo1.png" alt="Illustration" class="illustration"> -->
+        
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Full name">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input type="date" class="form-control" name="dob" id="dob" placeholder="Your Mobile Number">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-custom" onclick="personal()">Continue</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
+    <script>
+        var data = {};
+        function personal() {
+            data['name'] = $("#name").val();      
+            data['dob'] = $("#dob").val();
+
+            $.ajax({
+                url: 'personal_Details.php',
+                type: 'post',
+                data: data,
+                success: function(response) {
+                    if (response == 1) {
+                 alert('Details Submitted');
+                 window.location.href = "vehicle_info.html";
+                    } 
+                    else if(response == '0') {
+                        alert('Enter The Fields !');
+                    }
+                }
+            })
+        }
+
+    </script>
+    
+</body>
+
+</html>
+</body>
+</html>
+

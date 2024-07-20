@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoX - Plan Your Trip</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('backg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            
+            padding: 30px 20px;
+            border-radius: 15px;
+            max-width: 90%;
+          
+            margin-top: -100px;
+        }
+        .logo {
+            width: 90%;
+           
+          height: 90%;
+            margin-top: -180px;
+        }
+        .btn-custom {
+            background-color: #ff9503;
+            color: #000000;
+            border-radius: 25px;
+            padding: 15px 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #ff9503;
+        }
+        .btn-custom a {
+            color: #111010;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            .logo {
+                width: 70%;
+            }
+        }
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px 5px;
+            }
+            .logo {
+              margin-left: 3%;
+              margin-top: 7%;
+                width: 55%;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="vehicle_13.jpg" alt="Car Logo" class="logo">
+        <h1><b>RIDIERS</b></h1>
+        <p>Plan your trip</p>
+        <button class="btn btn-custom"><a href="signup.html">Get Started</a></button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
